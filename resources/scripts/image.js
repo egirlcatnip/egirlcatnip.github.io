@@ -486,5 +486,5 @@
 
 
 function image() {
-  mediumZoom("gallery img");
+  mediumZoom("gallery img", { margin: 20 });
 }
