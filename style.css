@@ -41,7 +41,6 @@ html,
 body {
   height: 96%;
   white-space: nowrap;
-  overflow-x: hidden;
 }
 
 /* Body setup with flexbox to make footer stick at the bottom */
@@ -54,6 +53,7 @@ body {
   color: var(--text);
   padding: 32px;
   font-size: 2em;
+  overflow-x: hidden;
 }
 
 /* Flexbox layout for the content and footer */
