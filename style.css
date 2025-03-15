@@ -1,0 +1,184 @@
+:root {
+  /* GNOME Colors */
+  --gnome-black: #1e1e1e;
+  --gnome-black-bright: #5d5d5d;
+
+  --gnome-red: #c01c28;
+  --gnome-red-bright: #f66151;
+
+  --gnome-green: #26a269;
+  --gnome-green-bright: #33d17a;
+
+  --gnome-yellow: #a2734c;
+  --gnome-yellow-bright: #e9ad0c;
+
+  --gnome-blue: #12488b;
+  --gnome-blue-bright: #2a7bde;
+
+  --gnome-magenta: #a347ba;
+  --gnome-magenta-bright: #c061cb;
+
+  --gnome-cyan: #2aa1b3;
+  --gnome-cyan-bright: #33c7de;
+
+  --gnome-white: #cfcfcf;
+  --gnome-white-bright: #ffffff;
+
+  /* Theme Variables */
+  --primary: var(--gnome-yellow-bright);
+  --secondary: var(--gnome-magenta-bright);
+
+  --dark-bg: var(--gnome-black);
+  --dark-fg: var(--gnome-white);
+
+  --light-bg: var(--gnome-white);
+  --light-fg: var(--gnome-black);
+
+  --gradient: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: var(--light-bg);
+    --bg-reverse: var(--dark-bg);
+    --fg: var(--light-fg);
+    --fg-reverse: var(--dark-fg);
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--dark-bg);
+    --bg-reverse: var(--light-bg);
+    --fg: var(--dark-fg);
+    --fg-reverse: var(--light-fg);
+  }
+}
+
+/* General Styling */
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 1.2em;
+  font-family: "Atkinson Hyperlegible Next";
+  max-width: 60em;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+h1, h2 {
+  background: var(--gradient);
+  padding: 1em;
+  white-space: nowrap;
+}
+
+h1, h2, h1 > a, h2 > a {
+  color: var(--light-fg);
+}
+
+/* Links */
+a, .link {
+  color: var(--dark-fg);
+  text-decoration: underline;
+}
+
+a:hover, .link:hover {
+  background: var(--bg-reverse);
+  color: var(--fg-reverse);
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+/* Layout */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.icon {
+  display: flex;
+  gap: 8px;
+}
+
+.icon > img {
+  width: 4em;
+  height: 4em;
+  image-rendering: pixelated;
+}
+
+/* Gallery */
+.gallery {
+  overflow-y: auto;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Ensures smooth snapping */
+  padding-bottom: 10px; /* Prevents scrollbar from overlapping content */
+}
+
+.gallery > img {
+  width: calc(100% / 3 - 11px); /* Ensures three images are visible at a time */
+  flex: 0 0 auto; /* Prevents images from stretching */
+  scroll-snap-align: center; /* Aligns images while scrolling */
+  pointer-events: all;
+  border-radius: 16px;
+  transition: border-radius 0.3s ease, ;
+}
+
+/* Zoom Effects */
+.medium-zoom-overlay {
+  background: #00000064 !important;
+}
+
+.medium-zoom-image {
+  border-radius: 2px;
+}
+
+/* Heart Icons */
+.heart > img {
+  cursor: pointer;
+}
+
+.heart > img:hover {
+  transform: scale(1.1);
+}
+
+.heart > img:active {
+  transform: scale(1);
+}
+
+/* Misc */
+hr {
+  display: block;
+  margin: 2em 0;
+  background: var(--gradient);
+  height: 4px;
+  border: none;
+}
+
+img {
+  user-select: none;
+}
+
+.primary {
+  color: var(--primary);
+}
+
+.secondary {
+  color: var(--secondary);
+}
+
+.text {
+  color: var(--fg);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  height: 30vh;
+}
