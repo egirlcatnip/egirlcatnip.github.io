@@ -31,7 +31,7 @@
   --dark-bg: var(--gnome-black);
   --dark-fg: var(--gnome-white);
 
-  --light-bg: var(--gnome-white);
+  --light-bg: var(--gnome-white-bright);
   --light-fg: var(--gnome-black);
 
   --gradient: linear-gradient(to right, var(--primary), var(--secondary));
@@ -80,7 +80,7 @@ h1, h2, h1 > a, h2 > a {
 
 /* Links */
 a, .link {
-  color: var(--dark-fg);
+  color: var(--fg);
   text-decoration: underline;
 }
 
