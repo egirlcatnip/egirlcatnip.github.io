@@ -68,23 +68,61 @@ body {
   padding: 1em;
 }
 
-h1, h2 {
+
+h1,
+h2,
+h3 {
   background: var(--gradient);
+  background-size: 100vw;
+  background-position: 50%;
   padding: 1em;
   white-space: nowrap;
 }
 
-h1, h2, h1 > a, h2 > a {
+h3 {
+  padding: 0.2em 0.2em 0em 1em;
+}
+
+h1,
+h2,
+h3,
+h1>a,
+h2>a,
+h3>a {
   color: var(--light-fg);
 }
 
+h1>a:hover,
+h2>a:hover,
+h3>a:hover {
+  color: var(--dark-fg);
+  background: var(--dark-bg);
+}
+
+hr {
+  display: block;
+  margin: 1em 0 1em 0;
+  background: var(--gradient);
+  background-size: 100vw;
+  background-position: 50%;
+  height: 4px;
+  border: none;
+
+}
+
+img {
+  user-select: none;
+}
+
 /* Links */
-a, .link {
+a,
+.link {
   color: var(--fg);
   text-decoration: underline;
 }
 
-a:hover, .link:hover {
+a:hover,
+.link:hover {
   background: var(--bg-reverse);
   color: var(--fg-reverse);
 }
@@ -105,7 +143,7 @@ a:hover, .link:hover {
   gap: 8px;
 }
 
-.icon > img {
+.icon>img {
   width: 4em;
   height: 4em;
   image-rendering: pixelated;
@@ -113,21 +151,18 @@ a:hover, .link:hover {
 
 /* Gallery */
 .gallery {
-  overflow-y: auto;
-  display: flex;
   gap: 16px;
-  overflow-x: auto; /* Enables horizontal scrolling */
-  scroll-snap-type: x mandatory; /* Ensures smooth snapping */
-  padding-bottom: 10px; /* Prevents scrollbar from overlapping content */
+  overflow-x: auto;
+  display: flex;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
 }
 
-.gallery > img {
-  width: calc(100% / 3 - 11px); /* Ensures three images are visible at a time */
-  flex: 0 0 auto; /* Prevents images from stretching */
-  scroll-snap-align: center; /* Aligns images while scrolling */
-  pointer-events: all;
+.gallery>img {
+  width: 100%;
+  flex: 0 0 auto;
+  scroll-snap-align: center;
   border-radius: 16px;
-  transition: border-radius 0.3s ease, ;
 }
 
 /* Zoom Effects */
@@ -136,35 +171,52 @@ a:hover, .link:hover {
 }
 
 .medium-zoom-image {
-  border-radius: 2px;
+  border-radius: 16px;
 }
 
 /* Heart Icons */
-.heart > img {
+.heart>img {
   cursor: pointer;
 }
 
-.heart > img:hover {
+.heart>img:hover {
   transform: scale(1.1);
 }
 
-.heart > img:active {
+.heart>img:active {
   transform: scale(1);
 }
 
+/* Tech stack */
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.stack a {
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 10px;
+  background: unset;
+}
+
+.stack a:hover {
+  transform: scale(1.1);
+}
+
+.stack a:active {
+  transform: scale(1);
+}
+
+.stack img {
+  width: 64px;
+  height: 64px;
+}
+
 /* Misc */
-hr {
-  display: block;
-  margin: 2em 0;
-  background: var(--gradient);
-  height: 4px;
-  border: none;
-}
-
-img {
-  user-select: none;
-}
-
 .primary {
   color: var(--primary);
 }
@@ -178,5 +230,7 @@ img {
 }
 
 .center {
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
