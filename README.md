@@ -35,7 +35,6 @@ I am in a [sapphic](https://en.wikipedia.org/wiki/Sapphism) relationship.
 ---
 I love to customize all customizable.
 <br>
-<br>
 I am an amateur musician and pianist.
 <br>
 <br>
