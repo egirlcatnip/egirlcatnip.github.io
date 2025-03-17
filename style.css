@@ -68,24 +68,17 @@ body {
   padding: 1em;
 }
 
-
 h1,
 h2,
 h3 {
   background: var(--gradient);
+  color: var(--light-fg);
+
   background-size: 100vw;
   background-position: 50%;
   padding: 1em;
-  white-space: nowrap;
 }
 
-h3 {
-  padding: 0.2em 0.2em 0em 1em;
-}
-
-h1,
-h2,
-h3,
 h1>a,
 h2>a,
 h3>a {
@@ -98,6 +91,7 @@ h3>a:hover {
   color: var(--dark-fg);
   background: var(--dark-bg);
 }
+
 
 hr {
   display: block;
@@ -136,6 +130,7 @@ a:hover,
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-left: auto;
 }
 
 .icon {
@@ -162,7 +157,6 @@ a:hover,
   width: 100%;
   flex: 0 0 auto;
   scroll-snap-align: center;
-  border-radius: 16px;
 }
 
 /* Zoom Effects */
@@ -170,9 +164,6 @@ a:hover,
   background: #00000064 !important;
 }
 
-.medium-zoom-image {
-  border-radius: 16px;
-}
 
 /* Heart Icons */
 .heart>img {
@@ -233,4 +224,19 @@ a:hover,
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.gradient {
+  background: var(--gradient);
+  background-size: 100vw;
+  background-position: 50%;
+  padding: 1em;
+}
+
+code {
+  background: var(--bg-reverse);
+  color: var(--fg-reverse);
+
+  padding: 0em 0.2em;
+  border-radius: 2px;
 }
