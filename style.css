@@ -66,32 +66,34 @@ body {
   max-width: 60em;
   margin: 0 auto;
   padding: 1em;
+  line-height: 2em;
 }
 
 h1,
-h2,
-h3 {
+h2 {
   background: var(--gradient);
   color: var(--light-fg);
-
-  background-size: 100vw;
-  background-position: 50%;
-  padding: 1em;
+  padding: 0.2em 1em;
 }
 
-h1>a,
-h2>a,
-h3>a {
+h3 {
+  margin: 0;
+  padding: 0 1em;
+  width: fit-content;
+}
+
+h1 > a,
+h2 > a,
+h3 > a {
   color: var(--light-fg);
 }
 
-h1>a:hover,
-h2>a:hover,
-h3>a:hover {
+h1 > a:hover,
+h2 > a:hover,
+h3 > a:hover {
   color: var(--dark-fg);
   background: var(--dark-bg);
 }
-
 
 hr {
   display: block;
@@ -101,7 +103,6 @@ hr {
   background-position: 50%;
   height: 4px;
   border: none;
-
 }
 
 img {
@@ -113,10 +114,37 @@ a,
 .link {
   color: var(--fg);
   text-decoration: underline;
+  border: none;
+  padding: 0.2rem;
 }
 
 a:hover,
 .link:hover {
+  background: var(--bg-reverse);
+  color: var(--fg-reverse);
+}
+
+code {
+  background: var(--bg-reverse);
+  color: var(--fg-reverse);
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.2rem;
+}
+
+code > a {
+  color: var(--fg-reverse);
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  display: inline;
+  line-height: 1.25rem;
+  padding: 0.2rem;
+}
+
+button:hover {
   background: var(--bg-reverse);
   color: var(--fg-reverse);
 }
@@ -138,7 +166,7 @@ a:hover,
   gap: 8px;
 }
 
-.icon>img {
+.icon > img {
   width: 4em;
   height: 4em;
   image-rendering: pixelated;
@@ -153,7 +181,7 @@ a:hover,
   padding-bottom: 10px;
 }
 
-.gallery>img {
+.gallery > img {
   width: 100%;
   flex: 0 0 auto;
   scroll-snap-align: center;
@@ -164,17 +192,16 @@ a:hover,
   background: #00000064 !important;
 }
 
-
 /* Heart Icons */
-.heart>img {
+.heart > img {
   cursor: pointer;
 }
 
-.heart>img:hover {
+.heart > img:hover {
   transform: scale(1.1);
 }
 
-.heart>img:active {
+.heart > img:active {
   transform: scale(1);
 }
 
@@ -233,10 +260,34 @@ a:hover,
   padding: 1em;
 }
 
-code {
-  background: var(--bg-reverse);
-  color: var(--fg-reverse);
+table {
+  background-image: var(--gradient);
+  /* the gradient */
+  background-origin: border-box;
+  /* set background to start from border-box */
+  /* space between each cell */
+  /* optional */
+}
 
-  padding: 0em 0.2em;
-  border-radius: 2px;
+td,
+th {
+  padding: 0em;
+  background: var(--bg);
+  /* Needed for pseudo-elements */
+}
+
+/* Inner cell border gradients */
+td,
+th {
+  border: 22px transparent solid;
+}
+
+able {
+  border-collapse: collapse; /* Removes spacing between borders */
+  width: auto; /* Adjusts the table size to content */
+}
+
+td, th {
+  padding: 0.2em; /* Reduce padding inside cells */
+  border: 1px solid transparent; /* Adds borders */
 }

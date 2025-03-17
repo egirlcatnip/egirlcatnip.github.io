@@ -3,11 +3,11 @@ function favicon() {
 
   if (cycle_enabled) {
     const favicons = [
-      "/assets/hearts/rainbow.webp",
-      "/assets/hearts/trans.webp",
-      "/assets/hearts/lesbian.webp",
-      "/assets/hearts/bi.webp",
-      "/assets/hearts/sapphic.webp",
+      "/assets/img/hearts/rainbow.webp",
+      "/assets/img/hearts/trans.webp",
+      "/assets/img/hearts/lesbian.webp",
+      "/assets/img/hearts/bisexual.webp",
+      "/assets/img/hearts/sapphic.webp",
     ];
     let index = 0;
 
