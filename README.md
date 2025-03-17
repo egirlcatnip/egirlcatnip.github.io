@@ -60,6 +60,3 @@ I enjoy watching the WAN show weekly.
 ---
 
 updated `17. 03. 2025`
-
-
-
