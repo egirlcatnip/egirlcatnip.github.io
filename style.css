@@ -79,7 +79,6 @@ h2 {
 h3 {
   margin: 0;
   padding: 0 1em;
-  width: fit-content;
 }
 
 h1 > a,
@@ -133,7 +132,6 @@ code {
 }
 
 code > a {
-  color: var(--fg-reverse);
 }
 
 button {
@@ -185,6 +183,8 @@ button:hover {
   width: 100%;
   flex: 0 0 auto;
   scroll-snap-align: center;
+  height: 30vh;
+  width: auto;
 }
 
 /* Zoom Effects */
