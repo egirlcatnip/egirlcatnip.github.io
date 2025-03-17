@@ -1,11 +1,11 @@
 # egirlcatnip (she/her)
 
-![Rainbow](/assets/hearts/rainbow.webp)
-![Transgender](/assets/hearts/trans.webp)
-![Transfemme](/assets/hearts/transfemme.webp)
-![Sapphic](/assets/hearts/sapphic.webp)
-![Lesbian](/assets/hearts/lesbian.webp)
-![Bisexual](/assets/hearts/bisexual.webp)
+![Rainbow](/assets/img/hearts/rainbow.webp)
+![Transgender](/assets/img/hearts/trans.webp)
+![Transfemme](/assets/img/hearts/transfemme.webp)
+![Sapphic](/assets/img/hearts/sapphic.webp)
+![Lesbian](/assets/img/hearts/lesbian.webp)
+![Bisexual](/assets/img/hearts/bisexual.webp)
 
 ---
 
@@ -33,19 +33,24 @@ I am in a [sapphic](https://en.wikipedia.org/wiki/Sapphism) relationship.
 <br>
 
 ---
-
-# What do I like to do?
-I code in Rust, C, and C++.
+I love to customize all customizable.
 <br>
-I love to read fantasy novels.
 <br>
-I'm an amateur musician & pianist.
+I am an amateur musician and pianist.
+<br>
+<br>
+I code in Rust, C and C++.
+<br>
+I'm looking into trying out Deno and Zig.
+<br>
+I run Codium on Fedora for my editing needs.
+<br>
+I browse the web with Zen. I host all my repositories on GitHub.
+<br>
 <br>
 I play Minecraft and The Binding of Isaac.
 <br>
- I love to customize all customizable.
- <br>
- I enjoy watching the [WAN Show](https://youtube.com/playlist?list=PL8mG-RkN2uTw7PhlnAr4pZZz2QubIbujH&si=dgG-0c1RmhKCY6b8) weekly.
+I enjoy watching the WAN show weekly.
 <br>
 
 ---
@@ -55,7 +60,7 @@ I play Minecraft and The Binding of Isaac.
 
 ---
 
-@egirlcatnip 2025 v2.0 (5. 3. 2025)
+updated `17. 03. 2025`
 
 
 
