@@ -1,32 +1,38 @@
 # Emily Konya
 
+Software engineer and computer science student with a passion for open-source, modern technologies, and innovative projects.
+
+<hr>
+
 ## Contact
 
 [`egirlcatnip@gmail.com`](mailto:egirlcatnip@gmail.com)\
 [`+421 950 592 905`](tel:+421950592905)\
 [`github.com/egirlcatnip`](https://github.com/egirlcatnip)
 
+<hr>
+
 ## Languages
 
-**Slovak** – Native  (C2)\
-**English** – Fluent (C1)
+`Slovak` – Native  (C2)\
+`English` – Fluent (C1)
 
 ## Education
 
-**2024 – \*** \
+### 2024 – *
 `Palacký University in Olomouc`\
 `17. listopadu 12, 779 00, Olomouc`\
 Study programme: Computer Science (ongoing)
 
-**2016 – 2024** \
+### 2016 – 2024
 `Grammar school Sobrance`\
  `Kpt. Nálepku 279, Sobrance`\
 Graduated with a high school diploma
 
 ## Work Experience
 
-**2025 - \***\
- Actively contributing to open-source projects.
+### 2025 - *
+` Actively contributing to open-source projects.`
 
 ## Skills
 
@@ -57,8 +63,9 @@ I am passionate about operating system development, especially Linux.
 
 ### Rust Programming Language
 
-I am interested in the Rust programming language and its ecosystem. Currently
-learning and broadening my skills.
+I am interested in the Rust programming language and its ecosystem.
+Currently learning to work with it and broadening my skills.
+
 
 ## Personal Information
 
@@ -73,6 +80,6 @@ learning and broadening my skills.
 
 **Nationality:** `Slovak`
 
+<br>
 
-
-Updated `17-03-2024`
+`16-04-2025`
