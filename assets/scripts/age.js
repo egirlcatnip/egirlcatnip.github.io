@@ -12,13 +12,13 @@ function calculateAge(day, month, year) {
   return age;
 }
 
-function age(day, month, year) {
+function date_since({ selector, day, month, year }) {
   const today = new Date();
   const isBirthday = today.getDate() === day && today.getMonth() === month - 1;
   const age = calculateAge(day, month, year);
-  const ageText = isBirthday ? `${age} (birthday!! 🎉)` : age;
+  const ageText = isBirthday ? `${age} (happy birthday!! 🎉)` : age;
 
-  document.querySelectorAll("age").forEach((el) => {
+  document.querySelectorAll(selector).forEach((el) => {
     el.textContent = ageText;
   });
 }
