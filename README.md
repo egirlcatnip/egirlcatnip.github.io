@@ -18,11 +18,11 @@ of computer science at UPOL, Olomouc.
 
 # Where to find me?
 
-(egirlcatnip @gmail)[mailto:egirlcatnip@gmail.com]
+[egirlcatnip @gmail](mailto:egirlcatnip@gmail.com)
 <br>
-(egirlcatnip @github)[github.com/egirlcatnip]
+[egirlcatnip @github](https://github.com/egirlcatnip)
 <br>
-(egirlcatnip @discord )[discord.com/egirlcatnip]
+[egirlcatnip @discord](https://discord.com/egirlcatnip)
 
 # Visit my personal site?
 
