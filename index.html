@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="@egirlcatnip">
+    <meta property="og:url" content="https://egirlcatnip.github.io">
+    <meta property="og:type" content="website">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/fonts.css">
+
+    <title>egirlcatnip</title>
+    <link rel="icon" href="/assets/img/hearts/rainbow.webp">
+
+    <!-- Scripts -->
+    <script src="/assets/scripts/date_since.js"></script>
+    <script src="/assets/scripts/favicon.js"></script>
+    <script src="/assets/scripts/image.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <a href="/">Emi</a>
+        <a
+          href="https://github.com/egirlcatnip/egirlcatnip.github.io/discussions"
+        >blog</a>
+      </h1>
+      <code>
+        Hardware is well, it's time for software to catch up.
+      </code>
+    </header>
+
+    <separator>
+      <hr>
+      <div class="row center">
+        <div class="icon pixelated">
+          <img title="Rainbow" src="/assets/img/hearts/rainbow.webp">
+          <img title="Transgender" src="/assets/img/hearts/trans.webp">
+          <img title="Transfemme" src="/assets/img/hearts/transfemme.webp">
+        </div>
+        <div class="icon heart">
+          <img title="Sapphic" src="/assets/img/hearts/sapphic.webp">
+          <img title="Lesbian" src="/assets/img/hearts/lesbian.webp">
+          <img title="Bisexual" src="/assets/img/hearts/bisexual.webp">
+        </div>
+      </div>
+      <hr>
+    </separator>
+
+    <main>
+      <section>
+        <h1>About</h1>
+        <p>
+          My name is Emily, but I also go by Millie or Emi. I am a <age
+            class="link"
+          >20 years</age> old student of computer science at
+          <a
+            title="Palacký University, Olomouc"
+            href="https://www.inf.upol.cz/"
+          >UPOL</a>.
+        </p>
+        <p>
+          I've been on HRT for <hrt class="link">some time</hrt>, which I take
+          in form of injections from <a href="https://voixceleste.cc/"
+          >Voix Céleste</a>.
+        </p>
+      </section>
+
+      <section>
+        <h1>Where to find me?</h1>
+        <p>
+          egirlcatnip
+          <a href="mailto:egirlcatnip@gmail.com">
+            @gmail
+          </a>
+          <br>
+          egirlcatnip
+          <a href="https://github.com/egirlcatnip/">
+            @github
+          </a>
+          <br>
+          egirlcatnip
+          <a href="https://discord.com/users/244471710991122432/">
+            @discord
+          </a>
+        </p>
+
+        <p>
+          Don't be shy to reach out! I love chatting! :3
+        </p>
+      </section>
+
+      <hr>
+
+      <section>
+        Updated <ver class="link">some time ago</ver>
+        <br>
+        <a href="https://github.com/egirlcatnip/egirlcatnip.github.io"
+        >source</a>
+      </section>
+    </main>
+  </body>
+
+  <script>
+    console.log(`Welcome to my personal site!`);
+    console.log(`Have a heart: <3`);
+
+    window.onload = function () {
+      image();
+      favicon();
+
+      applyDateSince({
+        selector: "age",
+        from: { day: 29, month: 4, year: 2005 },
+      });
+      applyDateSince({
+        selector: "hrt",
+        from: { day: 13, month: 12, year: 2024 },
+      });
+      applyDateSince({
+        selector: "ver",
+        from: { day: 10, month: 9, year: 2025 },
+        options: { ago: true },
+      });
+    };
+  </script>
+</html>

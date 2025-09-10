@@ -1,0 +1,237 @@
+:root {
+  /* GNOME Colors */
+  --gnome-black: #1e1e1e;
+  --gnome-black-bright: #5d5d5d;
+
+  --gnome-red: #c01c28;
+  --gnome-red-bright: #f66151;
+
+  --gnome-green: #26a269;
+  --gnome-green-bright: #33d17a;
+
+  --gnome-yellow: #a2734c;
+  --gnome-yellow-bright: #e9ad0c;
+
+  --gnome-blue: #12488b;
+  --gnome-blue-bright: #2a7bde;
+
+  --gnome-magenta: #a347ba;
+  --gnome-magenta-bright: #c061cb;
+
+  --gnome-cyan: #2aa1b3;
+  --gnome-cyan-bright: #33c7de;
+
+  --gnome-white: #cfcfcf;
+  --gnome-white-bright: #ffffff;
+
+  /* Theme Variables */
+  --primary: var(--gnome-yellow-bright);
+  --secondary: var(--gnome-magenta-bright);
+
+  --dark-bg: var(--gnome-black);
+  --dark-fg: var(--gnome-white);
+
+  --light-bg: var(--gnome-white-bright);
+  --light-fg: var(--gnome-black);
+
+  --gradient: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: var(--light-bg);
+    --bg-reverse: var(--dark-bg);
+    --fg: var(--light-fg);
+    --fg-reverse: var(--dark-fg);
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--dark-bg);
+    --bg-reverse: var(--light-bg);
+    --fg: var(--dark-fg);
+    --fg-reverse: var(--light-fg);
+  }
+}
+
+/* General Styling */
+body {
+  font-family: "Atkinson Hyperlegible Next";
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 1.2em;
+  max-width: 60em;
+  margin: 0 auto;
+  padding: 1em;
+  line-height: 2em;
+}
+
+h1 {
+  background: var(--gradient);
+  color: var(--light-fg);
+  padding: 0.2em 1em;
+  align-items: center;
+}
+
+h2, h3 {
+  margin: 0;
+  padding: 0em;
+}
+
+h1 > a,
+h2 > a,
+h3 > a {
+  color: var(--light-fg);
+}
+
+h1 > a:hover,
+h2 > a:hover,
+h3 > a:hover {
+  color: var(--dark-fg);
+  background: var(--dark-bg);
+}
+
+hr {
+  display: block;
+  margin: 1em 0 1em 0;
+  background: var(--gradient);
+  background-size: 100vw;
+  background-position: 50%;
+  height: 4px;
+  border: none;
+}
+
+img {
+  user-select: none;
+}
+
+/* Links */
+a,
+.link {
+  color: var(--fg);
+  text-decoration: underline;
+  border: none;
+  padding: 0.2rem;
+}
+
+a:hover,
+.link:hover {
+  background: var(--bg-reverse);
+  color: var(--fg-reverse);
+}
+
+code {
+  background: var(--bg-reverse);
+  color: var(--fg-reverse);
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.2rem;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  display: inline;
+  line-height: 1.25rem;
+  padding: 0.2rem;
+}
+
+button:hover {
+  background: var(--bg-reverse);
+  color: var(--fg-reverse);
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+/* Layout */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.icon img {
+  width: 4em;
+  height: 4em;
+}
+
+.pixelated img {
+  image-rendering: pixelated;
+}
+
+/* Gallery */
+.gallery {
+  gap: 16px;
+  overflow-x: auto;
+  display: flex;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.gallery > img {
+  width: 100%;
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  height: 30vh;
+  width: auto;
+}
+
+.medium-zoom-overlay {
+  background: #00000064 !important;
+}
+
+.icon img {
+  cursor: pointer;
+}
+
+.icon img:hover {
+  transform: scale(1.1);
+}
+
+.icon img:active {
+  transform: scale(1);
+}
+
+/* Misc */
+.primary {
+  color: var(--primary);
+}
+
+.secondary {
+  color: var(--secondary);
+}
+
+.text {
+  color: var(--fg);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.right {
+  align-items: right;
+}
+
+table {
+  background-image: var(--gradient);
+}
+
+td {
+  background: var(--bg);
+}
+
+td {
+  padding: 0.2em;
+}
+.grow {
+  flex-grow: 1;
+}
