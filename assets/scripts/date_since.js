@@ -26,8 +26,11 @@ function dateSince({
   const weeks = Math.floor(((totalDays % 365) % 30) / 7);
   const days = ((totalDays % 365) % 30) % 7;
 
-  // Rounding logic
-  const { ago = false } = options;
+  // Destructure options with defaults
+  const {
+    ago = false,
+    format = ["years", "months", "weeks", "days"],
+  } = options;
 
   let text = "";
   let comment = "";
@@ -39,27 +42,37 @@ function dateSince({
     comment = `${(fromDate.toDateString())} - ${(toDate.toDateString())}`;
   }
 
-  // Build the text output based on the calculated values
+  // Build the text output based on the calculated values and specified format
   const parts = [];
-  if (years > 0) parts.push(`${years} year${years !== 1 ? "s" : ""}`);
-  if (months > 0) parts.push(`${months} month${months !== 1 ? "s" : ""}`);
-  if (weeks > 0) parts.push(`${weeks} week${weeks !== 1 ? "s" : ""}`);
-  if (days > 0) parts.push(`${days} day${days !== 1 ? "s" : ""}`);
+  const allParts = [
+    { value: years, name: "year" },
+    { value: months, name: "month" },
+    { value: weeks, name: "week" },
+    { value: days, name: "day" },
+  ];
 
-  // Handle cases where counts are too small
-  if (months === 0 && weeks === 0 && days < 7) {
-    if (days > 0) {
-      text = `${days} day${days !== 1 ? "s" : ""}`;
-    } else {
-      text = "less than a day";
-    }
+  // Filter and create parts based on format and non-zero values
+  const filteredParts = allParts
+    .filter((part) => format.includes(part.name + "s") && part.value > 0)
+    .map((part) => `${part.value} ${part.name}${part.value !== 1 ? "s" : ""}`);
+
+  // Handle special formatting with comma and 'and'
+  if (filteredParts.length > 1) {
+    const lastPart = filteredParts.pop();
+    text = filteredParts.length > 0
+      ? `${filteredParts.join(", ")} and ${lastPart}`
+      : lastPart;
   } else {
-    text = parts.join(" and ");
+    text = filteredParts[0] || "less than a day";
+  }
+
+  // Handle small time periods
+  if (filteredParts.length === 0) {
+    text = "less than a day";
   }
 
   // Append "ago" or "from now" if applicable
   if (!to) {
-    console.log({ to, today });
     if (ago) {
       text += " ago";
     } else if (totalDays < 0) {
@@ -70,6 +83,7 @@ function dateSince({
   return { text, comment };
 }
 
+// deno-lint-ignore no-unused-vars
 function applyDateSince({
   selector,
   from,

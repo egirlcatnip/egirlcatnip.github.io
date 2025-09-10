@@ -1,4 +1,6 @@
-# website
+# Emi
+
+`Hardware is well, it's time for software to catch up.`
 
 <hr>
 
@@ -11,6 +13,10 @@
 
 <hr>
 
-<br>[web](https://egirlcatnip.github.io/)
-<br> [source](https://github.com/egirlcatnip/egirlcatnip.github.io)
-<br> [blog](https://github.com/egirlcatnip/egirlcatnip.github.io/discussions)
+egirlcatnip [@gmail](mailto:egirlcatnip@gmail.com)
+<br> egirlcatnip [@github](https://github.com/egirlcatnip)
+<br> egirlcatnip [@discord](https://discord.com/users/244471710991122432)
+
+<hr>
+
+updated `10-09-2025`
