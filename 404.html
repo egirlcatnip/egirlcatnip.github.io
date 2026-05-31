@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Open Graph -->
     <meta property="og:title" content="@egirlcatnip">
@@ -13,27 +13,31 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/fonts.css">
 
-    <title>404</title>
+    <title>egirlcatnip</title>
     <link rel="icon" href="/assets/img/hearts/rainbow.webp">
 
     <!-- Scripts -->
+    <script src="/assets/scripts/date_since.js"></script>
     <script src="/assets/scripts/favicon.js"></script>
   </head>
 
   <body>
     <header>
       <h1>
-        <a href="/">egirlcatnip</a>
-        <a href="/cv">cv</a>
-        <br>
-        <div>(she/her)</div>
+        <a href="/">Emi</a>
+        <a
+          href="https://github.com/egirlcatnip/egirlcatnip.github.io/discussions"
+        >blog</a>
       </h1>
+      <code>
+        Hardware is well, it's time for software to catch up.
+      </code>
     </header>
 
     <separator>
       <hr>
       <div class="row center">
-        <div class="icon heart">
+        <div class="icon pixelated">
           <img title="Rainbow" src="/assets/img/hearts/rainbow.webp">
           <img title="Transgender" src="/assets/img/hearts/trans.webp">
           <img title="Transfemme" src="/assets/img/hearts/transfemme.webp">
@@ -48,19 +52,39 @@
     </separator>
 
     <main>
+      <section id="me">
+        <h1>404</h1>
+        <p>
+          Oops! The page you're looking for doesn't exist.
+        </p>
+      </section>
+
       <section>
-        <h2>404 :: page not found</h2>
+        Updated <span class="version">xyz</span>.
+        <br>
+        <a href="https://github.com/egirlcatnip/egirlcatnip.github.io">
+          source
+        </a>
       </section>
     </main>
   </body>
-</html>
 
-<script>
-  console.log(`Welcome to my personal site!`);
-    console.log(`I'm afraid you wont find much of interest here..`);
+  <script>
+    console.log(`Welcome to my personal site!`);
     console.log(`Have a heart: <3`);
 
     window.onload = function () {
       favicon();
+
+      var date_updated = Temporal.PlainDate.from("2026-05-31");
+
+      applyDateSince({
+        class: "version",
+        date_from: date_updated,
+        units: ["year", "month", "day"],
+        prepend: ["", ""],
+        append: ["ago", ""],
+      });
     };
-</script>
+  </script>
+</html>
