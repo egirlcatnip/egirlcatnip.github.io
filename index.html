@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Open Graph -->
     <meta property="og:title" content="@egirlcatnip">
@@ -19,7 +19,6 @@
     <!-- Scripts -->
     <script src="/assets/scripts/date_since.js"></script>
     <script src="/assets/scripts/favicon.js"></script>
-    <script src="/assets/scripts/image.js"></script>
   </head>
 
   <body>
@@ -53,55 +52,74 @@
     </separator>
 
     <main>
-      <section>
-        <h1>About</h1>
+      <section id="me">
+        <h1>Me</h1>
         <p>
-          My name is Emily, but I also go by Millie or Emi. I am a <age
-            class="link"
-          >20 years</age> old student of computer science at
-          <a
-            title="Palacký University, Olomouc"
-            href="https://www.inf.upol.cz/"
-          >UPOL</a>.
-        </p>
-        <p>
-          I've been on HRT for <hrt class="link">some time</hrt>, which I take
-          in form of injections from <a href="https://voixceleste.cc/"
-          >Voix Céleste</a>.
+          Hi! I'm emi. I'm a compsci nerd from Slovakia. I live in Olomouc,
+          Czech Republic. I'm a trans bi girl. I play piano and recreationally
+          program.
+
+          <br>
+
+          I <span class="age">xyz</span>.
+
+          <br>
+
+          I have been on hormone replacement therapy <span class="hrt"
+          >xyz</span>. My regimen is monotherapy of 5mg estradiol enanthate
+          every week.
+
+          <br>
+
+          I program in rust and C, but I learn quickly and love exploring new
+          viewpoints to programming.
+
+          <br>
+
+          I am fluent in English, natively speak Slovak and understand Czech.
+
+          <br>
+
+          My free time is spent with friends or tweaking <b>*anything*</b> that
+          happens to bug me in the moment. It is usually one of
+          <span>
+            {phone, computer, hair}
+          </span>.
+
+          <br>
+
+          I am also a fairly experienced linux user and a gamer at heart.
         </p>
       </section>
 
-      <section>
-        <h1>Where to find me?</h1>
+      <section id="contact">
+        <h1>Contact</h1>
         <p>
           egirlcatnip
           <a href="mailto:egirlcatnip@gmail.com">
-            @gmail
+            @ gmail
           </a>
           <br>
           egirlcatnip
           <a href="https://github.com/egirlcatnip/">
-            @github
+            @ github
           </a>
           <br>
           egirlcatnip
           <a href="https://discord.com/users/244471710991122432/">
-            @discord
+            @ discord
           </a>
-        </p>
-
-        <p>
-          Don't be shy to reach out! I love chatting! :3
         </p>
       </section>
 
       <hr>
 
       <section>
-        Updated <ver class="link">some time ago</ver>
+        Updated <span class="version">xyz</span>.
         <br>
-        <a href="https://github.com/egirlcatnip/egirlcatnip.github.io"
-        >source</a>
+        <a href="https://github.com/egirlcatnip/egirlcatnip.github.io">
+          source
+        </a>
       </section>
     </main>
   </body>
@@ -111,22 +129,34 @@
     console.log(`Have a heart: <3`);
 
     window.onload = function () {
-      image();
       favicon();
 
+      var date_birthday = Temporal.PlainDate.from("2005-04-29");
+      var date_hrt_start = Temporal.PlainDate.from("2024-12-13");
+      var date_updated = Temporal.PlainDate.from("2026-05-31");
+
       applyDateSince({
-        selector: "age",
-        from: { day: 29, month: 4, year: 2005 },
-        options: { format: "years" },
+        class: "age",
+        date_from: date_birthday,
+        units: ["year", "month", "day"],
+        prepend: ["am now", "was born"],
+        append: ["old"],
       });
+
       applyDateSince({
-        selector: "hrt",
-        from: { day: 13, month: 12, year: 2024 },
+        class: "hrt",
+        date_from: date_hrt_start,
+        units: ["year", "month", "week", "day"],
+        prepend: ["for", "since"],
+        append: ["", ""],
       });
+
       applyDateSince({
-        selector: "ver",
-        from: { day: 10, month: 9, year: 2025 },
-        options: { ago: true },
+        class: "version",
+        date_from: date_updated,
+        units: ["year", "month", "day"],
+        prepend: ["", ""],
+        append: ["ago", ""],
       });
     };
   </script>

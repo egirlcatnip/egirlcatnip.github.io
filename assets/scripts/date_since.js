@@ -1,111 +1,73 @@
-function dateSince({
-  from,
-  to,
-  options = {},
-} = {}) {
-  // Validate input
-  if (!from || !from.year || !from.month || !from.day) {
-    throw new Error("From date must be fully specified");
-  }
-
-  // Use current date if 'to' is not specified
-  const today = new Date();
-  const toDate = to
-    ? new Date(to.year, (to.month || 1) - 1, to.day || 1)
-    : today;
-
-  const fromDate = new Date(from.year, (from.month || 1) - 1, from.day || 1);
-
-  // Calculate difference in milliseconds
-  const diffMs = toDate.getTime() - fromDate.getTime();
-  const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-
-  // Calculate years, months, weeks, and days
-  const years = Math.floor(totalDays / 365);
-  const months = Math.floor((totalDays % 365) / 30);
-  const weeks = Math.floor(((totalDays % 365) % 30) / 7);
-  const days = ((totalDays % 365) % 30) % 7;
-
-  // Destructure options with defaults
-  const {
-    ago = false,
-    format = ["years", "months", "weeks", "days"],
+// deno-lint-ignore no-unused-vars
+function applyDateSince(options) {
+  let {
+    class: className,
+    date_from,
+    date_to,
+    units,
+    prepend = [],
+    append = [],
   } = options;
 
-  let text = "";
-  let comment = "";
+  const elements = document.querySelectorAll(`.${className}`);
+  if (!elements.length) return;
 
-  // Determine comment text
-  if (!to) {
-    comment = fromDate.toDateString();
-  } else {
-    comment = `${(fromDate.toDateString())} - ${(toDate.toDateString())}`;
+  if (typeof date_from === "function") date_from = date_from("iso8601");
+  if (typeof date_to === "function") date_to = date_to("iso8601");
+  if (!date_to) {
+    date_to = date_from.hour !== undefined
+      ? Temporal.Now.plainDateTimeISO()
+      : Temporal.Now.plainDateISO();
   }
 
-  // Build the text output based on the calculated values and specified format
-  const parts = [];
-  const allParts = [
-    { value: years, name: "year" },
-    { value: months, name: "month" },
-    { value: weeks, name: "week" },
-    { value: days, name: "day" },
-  ];
+  // Calculate difference
+  const diffParts = [];
+  let current = date_from;
+  for (const unit of units) {
+    const diff = current.until(date_to, { largestUnit: unit });
+    const val = diff[`${unit}s`];
 
-  // Filter and create parts based on format and non-zero values
-  const filteredParts = allParts
-    .filter((part) => format.includes(part.name + "s") && part.value > 0)
-    .map((part) => `${part.value} ${part.name}${part.value !== 1 ? "s" : ""}`);
-
-  // Handle special formatting with comma and 'and'
-  if (filteredParts.length > 1) {
-    const lastPart = filteredParts.pop();
-    text = filteredParts.length > 0
-      ? `${filteredParts.join(", ")} and ${lastPart}`
-      : lastPart;
-  } else {
-    text = filteredParts[0] || "less than a day";
-  }
-
-  // Handle small time periods
-  if (filteredParts.length === 0) {
-    text = "less than a day";
-  }
-
-  // Append "ago" or "from now" if applicable
-  if (!to) {
-    if (ago) {
-      text += " ago";
-    } else if (totalDays < 0) {
-      text += " from now";
+    if (val !== 0) {
+      diffParts.push(`${val} ${unit}${val === 1 ? "" : "s"}`);
+      current = current.add({ [`${unit}s`]: val });
     }
   }
 
-  return { text, comment };
-}
+  const diffString = diffParts.length === 0
+    ? `0 ${units[units.length - 1]}s`
+    : (diffParts.length === 1
+      ? diffParts[0]
+      : `${diffParts.slice(0, -1).join(", ")} and ${
+        diffParts[diffParts.length - 1]
+      }`);
 
-// deno-lint-ignore no-unused-vars
-function applyDateSince({
-  selector,
-  from,
-  to,
-  options = {},
-}) {
-  // Find the target element
-  const el = document.querySelector(selector);
+  // Construct UI strings
+  // prepend/append are expected as [diff_form, date_form]
+  const pDiff = prepend[0] || "";
+  const aDiff = append[0] || "";
+  const pDate = prepend[1] || "";
+  const aDate = append[1] || "";
 
-  // If no element found, log a warning and return
-  if (!el) {
-    console.warn(`Element not found for selector: ${selector}`);
-    return;
-  }
+  const displayDiff = `${pDiff} ${diffString} ${aDiff}`.replace(/\s+/g, " ")
+    .trim();
+  const displayDate = `${pDate} ${date_from.toString().split("T")[0]} ${aDate}`
+    .replace(/\s+/g, " ").trim();
 
-  // Calculate the date difference
-  const { text, comment } = dateSince({ from, to, options });
+  elements.forEach((el) => {
+    let showingDiff = true;
+    el.style.display = "inline";
+    el.style.cursor = "pointer";
 
-  // Apply to the element
-  el.textContent = text;
-  el.title = comment;
+    const updateState = () => {
+      el.textContent = showingDiff ? displayDiff : displayDate;
+      el.title = showingDiff ? displayDate : displayDiff;
+    };
 
-  // Return the result in case it's needed
-  return { text, comment };
+    updateState();
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      showingDiff = !showingDiff;
+      updateState();
+    });
+  });
 }
